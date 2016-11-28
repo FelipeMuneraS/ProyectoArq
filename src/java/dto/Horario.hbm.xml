@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/11/2016 09:17:57 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dto.Horario" table="Horario" catalog="mydb" optimistic-lock="version">
+        <composite-id name="id" class="dto.HorarioId">
+            <key-property name="dia" type="string">
+                <column name="Dia" length="10" />
+            </key-property>
+            <key-property name="grupoCursoIdCurso" type="int">
+                <column name="Grupo_Curso_id_Curso" />
+            </key-property>
+            <key-property name="grupoIdGrupo" type="int">
+                <column name="Grupo_idGrupo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="grupo" class="dto.Grupo" update="false" insert="false" fetch="select">
+            <column name="Grupo_Curso_id_Curso" not-null="true" />
+            <column name="Grupo_idGrupo" not-null="true" />
+        </many-to-one>
+        <property name="horaInicio" type="time">
+            <column name="Hora_Inicio" length="8" not-null="true" />
+        </property>
+        <property name="horaFin" type="time">
+            <column name="Hora_Fin" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

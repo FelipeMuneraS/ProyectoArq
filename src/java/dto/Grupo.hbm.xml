@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/11/2016 09:17:57 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dto.Grupo" table="Grupo" catalog="mydb" optimistic-lock="version">
+        <composite-id name="id" class="dto.GrupoId">
+            <key-property name="cursoIdCurso" type="int">
+                <column name="Curso_id_Curso" />
+            </key-property>
+            <key-property name="idGrupo" type="int">
+                <column name="idGrupo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="curso" class="dto.Curso" update="false" insert="false" fetch="select">
+            <column name="Curso_id_Curso" not-null="true" />
+        </many-to-one>
+        <property name="numeroIntegrantes" type="string">
+            <column name="Numero_Integrantes" length="10" not-null="true" />
+        </property>
+        <property name="aula" type="string">
+            <column name="Aula" length="10" not-null="true" />
+        </property>
+        <property name="cuposDisponibles" type="int">
+            <column name="Cupos_Disponibles" not-null="true" />
+        </property>
+        <set name="clases" table="Clase" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Grupo_Curso_id_Curso" not-null="true" />
+                <column name="Grupo_idGrupo" not-null="true" />
+            </key>
+            <one-to-many class="dto.Clase" />
+        </set>
+        <set name="matriculas" table="Matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Grupo_Curso_id_Curso" not-null="true" />
+                <column name="Grupo_idGrupo" not-null="true" />
+            </key>
+            <one-to-many class="dto.Matricula" />
+        </set>
+        <set name="horarios" table="Horario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Grupo_Curso_id_Curso" not-null="true" />
+                <column name="Grupo_idGrupo" not-null="true" />
+            </key>
+            <one-to-many class="dto.Horario" />
+        </set>
+    </class>
+</hibernate-mapping>

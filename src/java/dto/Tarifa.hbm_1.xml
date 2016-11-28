@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/11/2016 09:17:57 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dto.Asistencia" table="Asistencia" catalog="mydb" optimistic-lock="version">
+        <composite-id name="id" class="dto.AsistenciaId">
+            <key-property name="estudianteTipoDocumento" type="String">
+                <column name="Estudiante_Tipo_Documento" length="5"/>
+            </key-property>
+            <key-property name="estudianteDocumento" type="int">
+                <column name="Estudiante_Documento" length="45"/>
+            </key-property>
+            <key-property name="claseIdClase" type="int">
+                <column name="Clase_idClase" />
+            </key-property>
+            <key-property name="claseGrupoCursoIdCurso" type="int">
+                <column name="Clase_Grupo_Curso_id_Curso" />
+            </key-property>
+            <key-property name="claseGrupoIdGrupo" type="int">
+                <column name="Clase_Grupo_idGrupo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="curso" class="dto.Curso" update="false" insert="false" fetch="select">
+            <column name="Curso_id_Curso" not-null="true" />
+        </many-to-one>
+        <property name="tipo" type="string">
+            <column name="Tipo" length="25" not-null="true" />
+        </property>
+        <property name="valor" type="string">
+            <column name="Valor" length="25" not-null="true" />
+        </property>
+        <property name="fechaPago" type="date">
+            <column name="Fecha_Pago" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
