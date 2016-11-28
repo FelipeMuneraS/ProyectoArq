@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid id="panel" columns="1" border="0"
+                         cellpadding="10" cellspacing="1" >
+                <f:facet name="header">
+                    <h1>Registro de usuario</h1>
+                </f:facet>
+                <h:selectOneMenu value="#{userData.data}">
+                    <f:selectItem itemValue="0" itemLabel="Tipo de documento" itemDisabled="true">
+                        <f:passThroughAttribute name="selected" value="true" />
+                    </f:selectItem>
+                    <f:selectItem itemValue="1" itemLabel="Cedula de ciudadanía" />
+                    <f:selectItem itemValue="2" itemLabel="Tarjeta de identidad" />
+                    <f:selectItem itemValue="3" itemLabel="Cédula de Extranjería" />
+                    <f:selectItem itemValue="4" itemLabel="Registro civil de nacimiento" />
+                </h:selectOneMenu>
+                <h:inputText pt:placeholder="Numero de documento" />
+                <h:inputText pt:placeholder="Nombre completo" />
+                <h:inputText pt:placeholder="correo electronico" />
+                
+                <f:facet name="footer">
+                    <h:panelGroup style="display:block; text-align:center">
+                        <h:commandButton id="submit" value="Registrar" />
+                    </h:panelGroup>
+                </f:facet>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

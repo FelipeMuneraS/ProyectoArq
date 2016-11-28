@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid id="panel" columns="1" border="0"
+                         cellpadding="10" cellspacing="1" >
+                <f:facet name="header">
+                    <h1>Busqueda de cursos</h1>
+                </f:facet>
+                <h:selectOneMenu value="#{userData.data}">
+                    <f:selectItem itemValue="0" itemLabel="Unidad académica" itemDisabled="true">
+                        <f:passThroughAttribute name="selected" value="true" />
+                    </f:selectItem>
+
+                    <f:selectItem itemValue="1" itemLabel="CORPORACIÓN ACADÉMICA PARA ESTUDIO DE PATOLOGÍAS TROPICALES" />
+                    <f:selectItem itemValue="2" itemLabel="CORPORACIÓN AMBIENTAL" />
+                    <f:selectItem itemValue="3" itemLabel="CORPORACIÓN DE CIENCIAS BÁSICAS BIOMÉDICAS" />
+                    <f:selectItem itemValue="4" itemLabel="DESARROLLO INSTITUCIONAL" />
+                    <f:selectItem itemValue="5" itemLabel="DIRECCION DE BIENESTAR UNIVERSITARIO" />
+                    <f:selectItem itemValue="6" itemLabel="DIRECCION DE GESTION Y RELACIONES INTERNACIONALES" />
+                    <f:selectItem itemValue="7" itemLabel="DIRECCION DE POSGRADOS" />
+                    <f:selectItem itemValue="8" itemLabel="DIRECCION DE REGIONALIZACION" />
+                    <f:selectItem itemValue="9" itemLabel="ESCUELA DE IDIOMAS" />
+                    <f:selectItem itemValue="10" itemLabel="ESCUELA DE MICROBIOLOGÍA" />
+                    <f:selectItem itemValue="11" itemLabel="ESCUELA DE NUTRICIÓN Y DIETÉTICA" />
+                    <f:selectItem itemValue="12" itemLabel="ESCUELA INTERAMERICANA DE BIBLIOTECOLOGÍA" />
+                    <f:selectItem itemValue="13" itemLabel="FACULTAD DE ARTES" />
+                    <f:selectItem itemValue="14" itemLabel="FACULTAD DE CIENCIAS AGRARIAS" />
+                    <f:selectItem itemValue="15" itemLabel="FACULTAD DE CIENCIAS ECONÓMICAS" />
+                    <f:selectItem itemValue="16" itemLabel="FACULTAD DE CIENCIAS EXACTAS Y NATURALES" />
+                    <f:selectItem itemValue="17" itemLabel="FACULTAD DE CIENCIAS FARMACÉUTICAS Y ALIMENTARIAS" />
+                    <f:selectItem itemValue="18" itemLabel="FACULTAD DE CIENCIAS SOCIALES Y HUMANAS" />
+                    <f:selectItem itemValue="19" itemLabel="FACULTAD DE COMUNICACIONES" />
+                    <f:selectItem itemValue="20" itemLabel="FACULTAD DE DERECHO Y CIENCIAS POLÍTICAS" />
+                    <f:selectItem itemValue="21" itemLabel="FACULTAD DE EDUCACIÓN" />
+                    <f:selectItem itemValue="22" itemLabel="FACULTAD DE ENFERMERÍA" />
+                    <f:selectItem itemValue="23" itemLabel="FACULTAD DE INGENIERÍA" />
+                    <f:selectItem itemValue="24" itemLabel="FACULTAD DE MEDICINA" />
+                    <f:selectItem itemValue="25" itemLabel="FACULTAD DE ODONTOLOGÍA" />
+                    <f:selectItem itemValue="26" itemLabel="FACULTAD NACIONAL DE SALUD PÚBLICA" />
+                    <f:selectItem itemValue="27" itemLabel="INSTITUTO DE ESTUDIOS POLÍTICOS" />
+                    <f:selectItem itemValue="28" itemLabel="INSTITUTO DE ESTUDIOS REGIONALES" />
+                    <f:selectItem itemValue="29" itemLabel="INSTITUTO DE FILOSOFÍA" />
+                    <f:selectItem itemValue="30" itemLabel="INSTITUTO UNIVERSITARIO DE EDUCACIÓN FÍSICA Y DEPORTES" />
+                    <f:selectItem itemValue="31" itemLabel="RECTORIA" />
+                    <f:selectItem itemValue="32" itemLabel="SECRETARIA GENERAL" />
+                    <f:selectItem itemValue="33" itemLabel="VICERRECTORIA ADMINISTRATIVA" />
+                    <f:selectItem itemValue="34" itemLabel="VICERRECTORIA DE DOCENCIA" />
+                    <f:selectItem itemValue="35" itemLabel="VICERRECTORIA DE EXTENSION" />
+                    <f:selectItem itemValue="36" itemLabel="VICERRECTORIA DE INVESTIGACION" />
+                </h:selectOneMenu>
+                <h:selectOneMenu value="#{userData.data}">
+                    <f:selectItem itemValue="0" itemLabel="Modalidad" itemDisabled="true">
+                        <f:passThroughAttribute name="selected" value="true" />
+                    </f:selectItem>
+                    <f:selectItem itemValue="1" itemLabel="Presencial" />
+                    <f:selectItem itemValue="2" itemLabel="Virtual" />
+                </h:selectOneMenu>
+                <h:inputText pt:placeholder="Palabra clave" />
+
+                <f:facet name="footer">
+                    <h:panelGroup style="display:block; text-align:center">
+                        <h:commandButton id="submit" value="Buscar" />
+                    </h:panelGroup>
+                </f:facet>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
